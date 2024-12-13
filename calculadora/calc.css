@@ -1,0 +1,77 @@
+h1 {
+    color: rgb(167, 40, 87);
+    text-align: center;
+    padding: 10px;
+    
+}
+#calculadora {
+    width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 2px;
+    background-color: #002397;
+    position: relative; /* Añadido para que los elementos hijos se posicionen en relación a este contenedor */
+}
+
+#resultado {
+    background-color: white;
+    border: 2px solid black;
+    width: 450px;
+    height: 50px;
+    position: absolute; 
+    left: 50%; 
+    top: 20px; 
+    transform: translateX(-50%); 
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 10px; /* Espacio entre botones */
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 80px; /* Ajusta este valor para mover los botones hacia arriba o abajo */
+    transform: translateX(-50%); 
+}
+
+.btn {
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.resta {
+    border-color: #f44336;
+    color: #f44336;
+}
+.resta:hover{
+    background: #f44336;
+    color: rgb(250,250,250);
+}
+
+.suma {
+    border-color: rgb(21, 209, 78);
+    color: #32e20e;
+}
+.suma:hover{
+    background: #13ad05;
+    color: rgb(255, 255, 255);
+}
+
+.multi {
+    border-color: #7b9604;
+    color: #baf335
+}
+.multi:hover {
+    background: ;
+}
