@@ -39,7 +39,7 @@ h1 {
     grid-template-columns: repeat(7, 2fr);
     grid-template-rows: repeat(4, 1fr);
     padding: 35px;
-    gap: 10px;
+    gap: 15px;
     position: absolute;
 }
 
@@ -129,8 +129,7 @@ h1 {
 .two{
     grid-column: 3;
     grid-row: 3;
-}zero
-
+}
 .three{
     grid-column: 5;
     grid-row: 3;
