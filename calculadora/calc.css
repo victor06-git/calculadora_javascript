@@ -131,20 +131,20 @@ h1 {
     grid-row: 3;
 }zero
 
-.btn.three{
+.three{
     grid-column: 5;
     grid-row: 3;
 }
 
 .point{
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 4;
 }
 .zero{
-    grid-column: 4;
+    grid-column: 3;
     grid-row: 4;
 }
 .igual{
-    grid-column: 6;
+    grid-column: 5;
     grid-row: 4;
 }
