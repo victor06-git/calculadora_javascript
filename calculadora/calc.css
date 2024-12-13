@@ -7,15 +7,18 @@ h1 {
 #calculadora {
     width: 500px;
     height: 600px;
+    border:rgb(102, 9, 224);
     margin: 0 auto;
     padding: 2px;
     background-color: #002397;
+    border-radius: 0.5cm;
     position: relative; /* Añadido para que los elementos hijos se posicionen en relación a este contenedor */
 }
 
 #resultado {
     background-color: white;
     border: 2px solid black;
+    border-radius: 2cm;
     width: 450px;
     height: 50px;
     position: absolute; 
@@ -31,13 +34,13 @@ h1 {
 
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    gap: 10px; /* Espacio entre botones */
-    padding: 20px;
+    height: 45vh;
+    top: 15%;
+    grid-template-columns: repeat(7, 2fr);
+    grid-template-rows: repeat(4, 1fr);
+    padding: 35px;
+    gap: 10px;
     position: absolute;
-    left: 50%;
-    top: 80px; /* Ajusta este valor para mover los botones hacia arriba o abajo */
-    transform: translateX(-50%); 
 }
 
 .btn {
@@ -45,12 +48,14 @@ h1 {
     border-radius: 10px;
     background-color: white;
     color: black;
-    padding: 20px;
+    padding: 15px;
     font-size: 20px;
     cursor: pointer;
 }
 
 .resta {
+    grid-column: 7;
+    grid-row: 2;
     border-color: #f44336;
     color: #f44336;
 }
@@ -60,6 +65,8 @@ h1 {
 }
 
 .suma {
+    grid-column: 7;
+    grid-row: 1;
     border-color: rgb(21, 209, 78);
     color: #32e20e;
 }
@@ -69,9 +76,75 @@ h1 {
 }
 
 .multi {
+    grid-column: 7;
+    grid-row: 3;
     border-color: #7b9604;
     color: #baf335
 }
 .multi:hover {
-    background: ;
+    background: #baf335 ;
+    color: rgb(255,255,255); 
+}
+
+.division {
+    grid-column: 7;
+    grid-row: 4;
+    border-color: rgb(199, 99, 6);
+    color: rgb(200, 98,10);
+}
+.division:hover {
+    background: rgb(190, 98,7);
+    color: rgb(255, 255, 255);
+}
+
+.seven {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.eight {
+    grid-column: 3;
+    grid-row: 1;
+}
+.nine {
+    grid-column: 5;
+    grid-row: 1;
+}
+.four {
+    grid-column: 1;
+    grid-row: 2;
+}
+.five{
+    grid-column: 3;
+    grid-row: 2;
+}
+.six{
+    grid-column: 5;
+    grid-row: 2;
+}
+.one{
+    grid-column: 1;
+    grid-row: 3;
+}
+.two{
+    grid-column: 3;
+    grid-row: 3;
+}zero
+
+.btn.three{
+    grid-column: 5;
+    grid-row: 3;
+}
+
+.point{
+    grid-column: 2;
+    grid-row: 4;
+}
+.zero{
+    grid-column: 4;
+    grid-row: 4;
+}
+.igual{
+    grid-column: 6;
+    grid-row: 4;
 }
