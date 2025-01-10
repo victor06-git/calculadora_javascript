@@ -1,0 +1,73 @@
+/* Variables */
+let currentValue = ""; // Valor actual mostrado en el label
+let previousValue = null; // Valor anterior para operaciones
+let operation = null; // Operación actual
+
+const button_suma = document.getElementsByClassName('btn suma')[0];
+const button_resta = document.getElementsByClassName('btn resta')[0];
+const button_multi = document.getElementsByClassName('btn multi')[0];
+const button_divisio = document.getElementsByClassName('btn division')[0];
+const button_zero = document.getElementsByClassName('btn zero')[0];
+const button_point = document.getElementsByClassName('btn point')[0];
+const button_igual = document.getElementsByClassName('btn igual')[0];
+const button_one = document.getElementsByClassName('btn one')[0];
+const button_two = document.getElementsByClassName('btn two')[0];
+
+const label_resultat = document.getElementById('resultado');
+
+/* Funciones */
+
+function updateDisplay() {
+    label_resultat.innerText = currentValue;
+}
+
+function appendValue(value) {
+    currentValue += value;
+    updateDisplay();
+}
+
+function setOperation(op) {
+    if (currentValue === "") return; // No hacer nada si no hay valor actual
+    previousValue = parseFloat(currentValue);
+    operation = op;
+    currentValue = ""; // Limpiar el valor actual para la siguiente entrada
+}
+
+function calculate() {
+    if (previousValue === null || currentValue === "") return; // No hacer nada si no hay valores
+    let result;
+    const currentNum = parseFloat(currentValue);
+    
+    switch (operation) {
+        case '+':
+            result = previousValue + currentNum;
+            break;
+        case '-':
+            result = previousValue - currentNum;
+            break;
+        case '*':
+            result = previousValue * currentNum;
+            break;
+        case '/':
+            result = previousValue / currentNum;
+            break;
+        default:
+            return; // No hacer nada si no hay operación
+    }
+    
+    currentValue = result.toString(); // Convertir el resultado a string
+    previousValue = null; // Reiniciar el valor anterior
+    operation = null; // Reiniciar la operación
+    updateDisplay();
+}
+
+/* Código */
+button_one.addEventListener('click', () => appendValue('1'));
+button_two.addEventListener('click', () => appendValue('2'));
+button_zero.addEventListener('click', () => appendValue('0'));
+button_point.addEventListener('click', () => appendValue('.'));
+button_suma.addEventListener('click', () => setOperation('+'));
+button_resta.addEventListener('click', () => setOperation('-'));
+button_multi.addEventListener('click', () => setOperation('*'));
+button_divisio.addEventListener('click', () => setOperation('/'));
+button_igual.addEventListener('click', calculate);
