@@ -20,6 +20,7 @@ const button_point = document.getElementsByClassName('btn point')[0];
 const button_igual = document.getElementsByClassName('btn igual')[0];
 const button_one = document.getElementsByClassName('btn one')[0];
 const button_two = document.getElementsByClassName('btn two')[0];
+const button_three = document.getElementsByClassName('btn three')[0];
 
 const label_resultat = document.getElementById('resultado');
 
@@ -39,39 +40,78 @@ function operacion(oper){
     if (value == "") return;
     previousValue = parseFloat(value);
     operation = oper;
-    
+    value = "";
 }
-function Suma(){
+
+function calculate() {
+    if (previousValue === null || value === "") return;
+    let result;
+    const currentNum = parseFloat(value);
+
+    switch (operation) {
+        case '+':
+            result = previousValue + currentNum;
+            break;
+        case '-':
+            result = previousValue - currentNum;
+            break;
+        case '*':
+            result = previousValue * currentNum;
+            break;
+        case '/':
+            result = previousValue / currentNum;
+            break;
+        default:
+            return;
+    }
+
+
+    value = result.toString(); //Convert the result to a String
+    previousValue = null; //Restart the value
+    operation = null; //Restart the value
+    update(); //Update
+
+}
+
+function Suma(){ //Fuction Add
     /*Suma de los números */
-    let a = 4;
-    let b = 2;
-    let suma = a + b;
-    label_resultat.innerText = suma;
+    return appendValue('+');
 }
 
-function Resta(){
+function Resta(){ //Function Minous
     /*Resta de los números */
-    let a = 2;
-    let b = 12;
-    let resta = a - b;
-    label_resultat.innerText = resta;
+    return appendValue('-');
 }
 
-function Multiplicacio(){
+function Multiplicacio(){ //Function Multi
     /*Multiplicación de los números */
-    label_resultat.innerText = "3";
+    return appendValue('*');
 }
 
-function Divisio(){
+function Divisio(){ //Function Divide
     /*División de los números */
+    return appendValue('/');
 }
 
 function Equal(){
     /*Show the answer in the label */
+    calculate();
 }
 
 function One(){
-    
+    return appendValue('1');
+}
+
+function Two(){
+    return appendValue('2');
+}
+
+function Three(){
+    return appendValue('3');
+}
+
+function Zero(){
+    return appendValue('0');
 }
 
 
@@ -82,4 +122,8 @@ button_suma.addEventListener('click', Suma);
 button_resta.addEventListener('click', Resta);
 button_multi.addEventListener('click', Multiplicacio);
 button_divisio.addEventListener('click', Divisio);
+button_igual.addEventListener('click', calculate);
+button_one.addEventListener('click', One);
+button_two.addEventListener('click', Two);
+button_zero.addEventListener('click', Zero);
 
