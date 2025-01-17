@@ -1,129 +1,55 @@
-/*Variables */
-let suma;
-let resta;
-let multiplicacio;
-let divisio;
-let show;
-let s;
-let r;
+let currentInput = ''; // Store the actual input
+let previousResult = null; // Store the previous result
+let operator = null; // Store the operator
+const resultadoLabel = document.getElementById('resultado');
+const buttons = document.querySelectorAll('.btn');
 
-let value = "";
-let previousValue = null;
-let op = null;
+// Function for the buttons
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const buttonText = button.textContent;
 
-const button_suma = document.getElementsByClassName('btn suma')[0];
-const button_resta = document.getElementsByClassName('btn resta')[0];
-const button_multi = document.getElementsByClassName('btn multi')[0];
-const button_divisio = document.getElementsByClassName('btn division')[0];
-const button_zero = document.getElementsByClassName('btn zero')[0];
-const button_point = document.getElementsByClassName('btn point')[0];
-const button_igual = document.getElementsByClassName('btn igual')[0];
-const button_one = document.getElementsByClassName('btn one')[0];
-const button_two = document.getElementsByClassName('btn two')[0];
-const button_three = document.getElementsByClassName('btn three')[0];
+        if (buttonText === '=') {
+            // If the equal button is pressed
+            if (currentInput !== '' && operator !== null) {
+                // Make the calculation
+                previousResult = calculate(previousResult, parseFloat(currentInput), operator);
+                resultadoLabel.textContent = previousResult; // Show the result
+                currentInput = ''; // Restart the actual input
+                operator = null; // Restart the operator
+            }
+        } else if (['+', '-', '×', '÷'].includes(buttonText)) {
+            // Si se presiona un operador
+            if (currentInput !== '') {
+                if (previousResult === null) {
+                    previousResult = parseFloat(currentInput); // Guarda el primer número
+                } else {
+                    previousResult = calculate(previousResult, parseFloat(currentInput), operator); // Calcula el resultado
+                }
+                operator = buttonText; // Guarda el operador
+                currentInput = ''; // Reinicia el input actual
+                resultadoLabel.textContent = ''; //Restart the label
+            }
+        } else {
+            // If it is a number button pressed 
+            currentInput += buttonText; // Add the nummber to the current input
+            resultadoLabel.textContent = currentInput; // Show the current input
+        }
+    });
+});
 
-const label_resultat = document.getElementById('resultado');
-
-
-/*Funciones */
-
-function update(){
-    label_resultat.innerText = value;
-}
-
-function afegirValue(valor){
-    value += valor;
-    update();
-}
-
-function operacion(oper){
-    if (value == "") return;
-    previousValue = parseFloat(value);
-    operation = oper;
-    value = "";
-}
-
-function calculate() {
-    if (previousValue === null || value === "") return;
-    let result;
-    const currentNum = parseFloat(value);
-
-    switch (operation) {
+// Function to calculate the result
+function calculate(a, b, op) {
+    switch (op) {
         case '+':
-            result = previousValue + currentNum;
-            break;
+            return a + b;
         case '-':
-            result = previousValue - currentNum;
-            break;
-        case '*':
-            result = previousValue * currentNum;
-            break;
-        case '/':
-            result = previousValue / currentNum;
-            break;
+            return a - b;
+        case '×':
+            return a * b;
+        case '÷':
+            return a / b;
         default:
-            return;
+            return b;
     }
-
-
-    value = result.toString(); //Convert the result to a String
-    previousValue = null; //Restart the value
-    operation = null; //Restart the value
-    update(); //Update
-
 }
-
-function Suma(){ //Fuction Add
-    /*Suma de los números */
-    return appendValue('+');
-}
-
-function Resta(){ //Function Minous
-    /*Resta de los números */
-    return appendValue('-');
-}
-
-function Multiplicacio(){ //Function Multi
-    /*Multiplicación de los números */
-    return appendValue('*');
-}
-
-function Divisio(){ //Function Divide
-    /*División de los números */
-    return appendValue('/');
-}
-
-function Equal(){
-    /*Show the answer in the label */
-    calculate();
-}
-
-function One(){
-    return appendValue('1');
-}
-
-function Two(){
-    return appendValue('2');
-}
-
-function Three(){
-    return appendValue('3');
-}
-
-function Zero(){
-    return appendValue('0');
-}
-
-
-/*Codigo */
-
-
-button_suma.addEventListener('click', Suma);
-button_resta.addEventListener('click', Resta);
-button_multi.addEventListener('click', Multiplicacio);
-button_divisio.addEventListener('click', Divisio);
-button_igual.addEventListener('click', calculate);
-button_one.addEventListener('click', One);
-button_two.addEventListener('click', Two);
-button_zero.addEventListener('click', Zero);
-
