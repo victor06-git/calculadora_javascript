@@ -22,7 +22,7 @@ body {
     padding: 2px;
     background-color: #1f326b;
     border-radius: 1cm;
-    position: relative; /* Para que los elementos hijos se posicionen en relación a este contenedor */
+    position: relative; 
 }
 
 #resultado {
@@ -116,16 +116,16 @@ body {
 .clean {
     border-color: #962d04;
     color: #b3411e;
-    position: absolute; /* Cambiar a absolute para posicionarlo */
-    left: 7%; /* Centrar horizontalmente */
-    top: 80px; /* Ajustar la posición vertical según sea necesario */
+    position: absolute; 
+    left: 7%;
+    top: 80px;
     /*transform: translateX(-50%); /* Centrar el botón */
-    width: 30%; /* Hacer que el botón ocupe todo el ancho disponible */
-    height: 60px; /* Ajustar la altura del botón */
+    width: 30%; 
+    height: 60px; 
     cursor: pointer;
-    display: flex; /* Para centrar el texto */
-    align-items: center; /* Centrar verticalmente */
-    justify-content: center; /* Centrar horizontalmente */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
 
 .clean:hover {
