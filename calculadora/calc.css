@@ -15,14 +15,14 @@ body {
 }
 
 #calculadora {
-    width: 500px;
-    height: 600px;
-    border:rgb(225, 212, 241);
+    width: 550px; /* Aumentar el ancho */
+    height: 650px; /* Aumentar la altura */
+    border: rgb(225, 212, 241);
     margin: 0 auto;
     padding: 2px;
     background-color: #1f326b;
     border-radius: 1cm;
-    position: relative; /* Añadido para que los elementos hijos se posicionen en relación a este contenedor */
+    position: relative; /* Para que los elementos hijos se posicionen en relación a este contenedor */
 }
 
 #resultado {
@@ -111,6 +111,26 @@ body {
 .division:hover {
     background: rgb(190, 98,7);
     color: rgb(255, 255, 255);
+}
+
+.clean {
+    border-color: #962d04;
+    color: #b3411e;
+    position: absolute; /* Cambiar a absolute para posicionarlo */
+    left: 7%; /* Centrar horizontalmente */
+    top: 80px; /* Ajustar la posición vertical según sea necesario */
+    /*transform: translateX(-50%); /* Centrar el botón */
+    width: 30%; /* Hacer que el botón ocupe todo el ancho disponible */
+    height: 60px; /* Ajustar la altura del botón */
+    cursor: pointer;
+    display: flex; /* Para centrar el texto */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.clean:hover {
+    background: rgb(139, 14, 24);
+    color: #f44336;
 }
 
 .seven {
